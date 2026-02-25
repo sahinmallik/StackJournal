@@ -40,8 +40,8 @@ const navbar = (
         </span>
       </>
     }
-    chatLink="https://discord.com"
-    projectLink="https://github.com/sahinmallik"
+    // chatLink="https://discord.com"
+    projectLink="https://github.com/sahinmallik/StackJournal"
     // ... Your additional navbar options
   />
 );
@@ -78,7 +78,7 @@ export default async function RootLayout({ children }) {
           banner={banner}
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/sahinmallik"
+          docsRepositoryBase="https://github.com/sahinmallik/StackJournal"
           footer={footer}
           editLink="Edit this page on GitHub"
           // ... Your additional layout options
