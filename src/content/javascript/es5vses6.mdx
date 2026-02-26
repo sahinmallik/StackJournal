@@ -1,0 +1,97 @@
+# Javascript(ECMAStandard Script)
+
+# ES5 (ECMAScript 2009)
+
+ES5 was a **stability-focused update** that improved reliability, JSON handling, and array utilities.
+
+## Key Features
+
+| Feature                  | Description                                                                                                                                                  |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `"use strict"`           | Enables **strict mode**, which enforces safer coding practices (e.g., no undeclared variables, prevents duplicate parameters, disallows deleting variables). |
+| `var`                    | Function-scoped variable declaration. Can cause scope issues due to hoisting.                                                                                |
+| `function myFun() {}`    | Traditional function declaration syntax.                                                                                                                     |
+| Asynchronous (Callbacks) | Callbacks were the primary way to handle async operations (e.g., AJAX, timers).                                                                              |
+| Modules                  | No native module system. Developers used CommonJS (`require`) or AMD libraries.                                                                              |
+| `JSON.parse()`           | Converts JSON string → JavaScript object.                                                                                                                    |
+| `JSON.stringify()`       | Converts JavaScript object → JSON string.                                                                                                                    |
+| Array methods            | Introduced powerful iteration methods: `.forEach()`, `.map()`, `.filter()`, `.reduce()`, `.some()`, `.every()`                                               |
+| `Object` methods         | `Object.keys()`, `Object.create()`, `Object.defineProperty()`                                                                                                |
+
+---
+
+## Example (ES5)
+
+```javascript copy
+"use strict";
+
+var numbers = [1, 2, 3];
+
+numbers.forEach(function (num) {
+  console.log(num);
+});
+```
+
+---
+
+# ES6 (ECMAScript 2015)
+
+ES6 was a **major upgrade** to JavaScript, introducing modern syntax and powerful new features.
+
+## Key Features
+
+| Feature                        | Description                                                                             |
+| ------------------------------ | --------------------------------------------------------------------------------------- |
+| `let` and `const`              | Block-scoped variables. `const` prevents reassignment. Fixes many `var` scoping issues. |
+| Arrow Functions                | Shorter function syntax: `const myFun = () => {}`. Lexically binds `this`.              |
+| Promises                       | Better async handling using `.then()` and `.catch()` instead of callback nesting.       |
+| Modules                        | Native `import` and `export` system for modular code.                                   |
+| Template Literals              | Backtick strings with interpolation: `` `Hello ${name}` ``                              |
+| Destructuring                  | Extract values from objects and arrays easily.                                          |
+| Default Parameters             | Set default function values.                                                            |
+| Spread / Rest Operator (`...`) | Expand or collect values.                                                               |
+| Classes                        | Cleaner syntax for constructor functions and inheritance.                               |
+| Enhanced Object Literals       | Shorthand properties and methods.                                                       |
+| New Array Methods              | `.find()`, `.findIndex()`, `Array.from()`, `Array.of()`, `.keys()`, `.entries()`        |
+| New String Methods             | `.includes()`, `.startsWith()`, `.endsWith()`, `.repeat()`                              |
+| `Map` and `Set`                | New data structures for better key-value and unique value handling.                     |
+| `Symbol`                       | New primitive type for unique identifiers.                                              |
+
+---
+
+## Example (ES6)
+
+```javascript copy
+const numbers = [1, 2, 3];
+
+numbers.forEach((num) => console.log(num));
+
+const person = { name: "Sahin", age: 21 };
+const { name, age } = person;
+
+console.log(`Name: ${name}, Age: ${age}`);
+```
+
+---
+
+# ES5 vs ES6 (Quick Comparison)
+
+| Feature              | ES5                     | ES6                           |
+| -------------------- | ----------------------- | ----------------------------- |
+| Variable Scope       | `var` (function scoped) | `let`, `const` (block scoped) |
+| Functions            | Traditional functions   | Arrow functions               |
+| Async                | Callbacks               | Promises                      |
+| Modules              | No native support       | `import` / `export`           |
+| Classes              | Prototype-based         | `class` syntax                |
+| String Interpolation | Concatenation           | Template literals             |
+
+---
+
+# Why ES6 Was Revolutionary
+
+- Cleaner syntax
+- Better async handling
+- Improved scope management
+- Native module system
+- More powerful data structures
+- Foundation for modern frameworks (React, Next.js, Node modern code)
