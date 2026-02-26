@@ -3,6 +3,8 @@
 JavaScript is a high-level, interpreted programming language primarily used to build interactive and dynamic web applications.
 The official standardized specification of JavaScript is called ECMAScript.
 
+---
+
 # ES5 (ECMAScript 2009)
 
 ES5 was a **stability-focused update** that improved reliability, JSON handling, and array utilities.
@@ -23,17 +25,296 @@ ES5 was a **stability-focused update** that improved reliability, JSON handling,
 
 ---
 
-## Example (ES5)
+Perfect 👍 Let’s cover **all major ES5 (2009)** features with clear examples.
 
-```js copy
+---
+
+# 🚀 ES5 (ECMAScript 2009) – Features with Examples
+
+---
+
+## 1️⃣ `"use strict"`
+
+Enables strict mode (prevents undeclared variables, duplicate params, etc.)
+
+```js copy showLineNumbers filename="example.js"
 "use strict";
 
+x = 10; // ❌ Error: x is not defined
+```
+
+---
+
+## 2️⃣ `JSON.parse()`
+
+Convert JSON string → JavaScript object
+
+```js copy showLineNumbers filename="example.js"
+var jsonString = '{"name":"John","age":21}';
+
+var obj = JSON.parse(jsonString);
+
+console.log(obj.name); // John
+```
+
+---
+
+## 3️⃣ `JSON.stringify()`
+
+Convert JavaScript object → JSON string
+
+```js copy showLineNumbers filename="example.js"
+var person = { name: "John", age: 21 };
+
+var json = JSON.stringify(person);
+
+console.log(json); // {"name":"John","age":21}
+```
+
+---
+
+# 📌 Array Methods Introduced in ES5
+
+---
+
+## 4️⃣ `forEach()`
+
+Runs function on every element
+
+```js copy showLineNumbers filename="example.js"
 var numbers = [1, 2, 3];
 
 numbers.forEach(function (num) {
   console.log(num);
 });
 ```
+
+---
+
+## 5️⃣ `map()`
+
+Creates a new array after transformation
+
+```js copy showLineNumbers filename="example.js"
+var numbers = [1, 2, 3];
+
+var doubled = numbers.map(function (num) {
+  return num * 2;
+});
+
+console.log(doubled); // [2, 4, 6]
+```
+
+---
+
+## 6️⃣ `filter()`
+
+Returns elements that satisfy condition
+
+```js copy showLineNumbers filename="example.js"
+var numbers = [1, 2, 3, 4];
+
+var even = numbers.filter(function (num) {
+  return num % 2 === 0;
+});
+
+console.log(even); // [2, 4]
+```
+
+---
+
+## 7️⃣ `reduce()`
+
+Reduces array to single value
+
+```js copy showLineNumbers filename="example.js"
+var numbers = [1, 2, 3, 4];
+
+var sum = numbers.reduce(function (total, num) {
+  return total + num;
+}, 0);
+
+console.log(sum); // 10
+```
+
+---
+
+## 8️⃣ `some()`
+
+Returns `true` if at least one element matches condition
+
+```js copy showLineNumbers filename="example.js"
+var numbers = [1, 3, 5, 8];
+
+var hasEven = numbers.some(function (num) {
+  return num % 2 === 0;
+});
+
+console.log(hasEven); // true
+```
+
+---
+
+## 9️⃣ `every()`
+
+Returns `true` if all elements match condition
+
+```js copy showLineNumbers filename="example.js"
+var numbers = [2, 4, 6];
+
+var allEven = numbers.every(function (num) {
+  return num % 2 === 0;
+});
+
+console.log(allEven); // true
+```
+
+---
+
+## 🔟 `indexOf()`
+
+Find index of element
+
+```js copy showLineNumbers filename="example.js"
+var fruits = ["apple", "banana", "mango"];
+
+console.log(fruits.indexOf("banana")); // 1
+```
+
+---
+
+## 1️⃣1️⃣ `lastIndexOf()`
+
+Find last occurrence index
+
+```js copy showLineNumbers filename="example.js"
+var nums = [1, 2, 3, 2];
+
+console.log(nums.lastIndexOf(2)); // 3
+```
+
+---
+
+# 📌 Object Methods in ES5
+
+---
+
+## 1️⃣2️⃣ `Object.keys()`
+
+Returns array of object keys
+
+```js copy showLineNumbers filename="example.js"
+var user = { name: "John", age: 21 };
+
+console.log(Object.keys(user));
+// ["name", "age"]
+```
+
+---
+
+## 1️⃣3️⃣ `Object.create()`
+
+Creates new object with prototype
+
+```js copy showLineNumbers filename="example.js"
+var person = {
+  greet: function () {
+    console.log("Hello");
+  },
+};
+
+var student = Object.create(person);
+
+student.greet(); // Hello
+```
+
+---
+
+## 1️⃣4️⃣ `Object.defineProperty()`
+
+Define property with control
+
+```js copy showLineNumbers filename="example.js"
+var obj = {};
+
+Object.defineProperty(obj, "name", {
+  value: "John",
+  writable: false,
+});
+
+obj.name = "John"; // ❌ Cannot change
+console.log(obj.name); // John
+```
+
+---
+
+# 📌 String Method (ES5)
+
+## 1️⃣5️⃣ `trim()`
+
+Removes whitespace from both ends
+
+```js copy showLineNumbers filename="example.js"
+var text = "   Hello   ";
+
+console.log(text.trim());
+// "Hello"
+```
+
+---
+
+# 📌 Date Method
+
+## 1️⃣6️⃣ `Date.now()`
+
+Returns current timestamp
+
+```js copy showLineNumbers filename="example.js"
+console.log(Date.now());
+```
+
+---
+
+# 📌 Property Getters and Setters
+
+```js copy showLineNumbers filename="example.js"
+var person = {
+  firstName: "John",
+  lastName: "Doe",
+
+  get fullName() {
+    return this.firstName + " " + this.lastName;
+  },
+};
+
+console.log(person.fullName);
+```
+
+---
+
+# What is a Callback?
+
+A callback is simply a function passed as an argument that executes later.
+
+```js filename="example.js" copy showLineNumbers
+function greet(name, callback) {
+  console.log("Hello " + name);
+  callback();
+}
+
+greet("John", function () {
+  console.log("Finished!");
+});
+```
+
+Output:
+
+```
+Hello John
+Finished!
+```
+
+The second function runs after the first finishes.
 
 ---
 
@@ -62,17 +343,281 @@ ES6 was a **major upgrade** to JavaScript, introducing modern syntax and powerfu
 
 ---
 
-## Example (ES6)
+Perfect 👍
+Now let’s cover **ES6 (ECMAScript 2015)** features with clear and practical examples.
 
-```js copy
-const numbers = [1, 2, 3];
+---
 
-numbers.forEach((num) => console.log(num));
+# 🚀 ES6 (ECMAScript 2015) – Features with Examples
 
-const person = { name: "Sahin", age: 21 };
+ES6 was a **major upgrade** that modernized JavaScript.
+
+---
+
+## 1️⃣ `let` (Block Scoped Variable)
+
+```js copy showLineNumbers filename="example.js"
+let x = 10;
+
+if (true) {
+  let x = 20;
+  console.log(x); // 20
+}
+
+console.log(x); // 10
+```
+
+---
+
+## 2️⃣ `const` (Block Scoped + Cannot Reassign)
+
+```js copy showLineNumbers filename="example.js"
+const PI = 3.14;
+
+// PI = 3.141; ❌ Error
+```
+
+⚠️ Note: Object values can still be modified.
+
+```js copy showLineNumbers filename="example.js"
+const user = { name: "John" };
+user.name = "John"; // ✅ allowed
+```
+
+---
+
+## 4️⃣ Template Literals
+
+Backticks + interpolation
+
+```js copy showLineNumbers filename="example.js"
+const name = "John";
+const age = 21;
+
+console.log(`My name is ${name} and I am ${age} years old`);
+```
+
+Multi-line string:
+
+```js copy showLineNumbers filename="example.js"
+const message = `
+Hello
+World
+`;
+```
+
+---
+
+## 5️⃣ Default Parameters
+
+```js copy showLineNumbers filename="example.js"
+function greet(name = "Guest") {
+  return `Hello ${name}`;
+}
+
+console.log(greet()); // Hello Guest
+```
+
+---
+
+## 6️⃣ Destructuring
+
+### Object Destructuring
+
+```js copy showLineNumbers filename="example.js"
+const person = { name: "John", age: 21 };
+
 const { name, age } = person;
 
-console.log(`Name: ${name}, Age: ${age}`);
+console.log(name); // John
+```
+
+### Array Destructuring
+
+```js copy showLineNumbers filename="example.js"
+const arr = [10, 20];
+
+const [a, b] = arr;
+
+console.log(a); // 10
+```
+
+---
+
+## 7️⃣ Spread Operator (`...`)
+
+Copy / Expand
+
+```js copy showLineNumbers filename="example.js"
+const arr1 = [1, 2];
+const arr2 = [...arr1, 3, 4];
+
+console.log(arr2); // [1,2,3,4]
+```
+
+Copy object:
+
+```js copy showLineNumbers filename="example.js"
+const obj1 = { a: 1 };
+const obj2 = { ...obj1, b: 2 };
+```
+
+---
+
+## 8️⃣ Rest Parameter
+
+Collect multiple arguments
+
+```js copy showLineNumbers filename="example.js"
+function sum(...numbers) {
+  return numbers.reduce((a, b) => a + b);
+}
+
+console.log(sum(1, 2, 3)); // 6
+```
+
+---
+
+## 9️⃣ Classes
+
+Cleaner syntax over prototypes
+
+```js copy showLineNumbers filename="example.js"
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  greet() {
+    console.log(`Hello ${this.name}`);
+  }
+}
+
+const p1 = new Person("John");
+p1.greet();
+```
+
+---
+
+## 🔟 Promises (Improved Async Handling)
+
+```js copy showLineNumbers filename="example.js"
+const promise = new Promise((resolve, reject) => {
+  let success = true;
+
+  if (success) {
+    resolve("Success");
+  } else {
+    reject("Error");
+  }
+});
+
+promise
+  .then((result) => console.log(result))
+  .catch((error) => console.log(error));
+```
+
+---
+
+## 1️⃣1️⃣ Modules (Import / Export)
+
+### Export (file1.js)
+
+```js copy showLineNumbers filename="example.js"
+export const name = "John";
+```
+
+### Import (file2.js)
+
+```js copy showLineNumbers filename="example.js"
+import { name } from "./file1.js";
+```
+
+---
+
+## 1️⃣2️⃣ Enhanced Object Literals
+
+```js copy showLineNumbers filename="example.js"
+const name = "John";
+
+const user = {
+  name,
+  greet() {
+    console.log("Hello");
+  },
+};
+```
+
+---
+
+## 1️⃣3️⃣ New Array Methods
+
+### `find()`
+
+```js copy showLineNumbers filename="example.js"
+const nums = [1, 2, 3, 4];
+
+const result = nums.find((n) => n > 2);
+console.log(result); // 3
+```
+
+### `findIndex()`
+
+```js copy showLineNumbers filename="example.js"
+const index = nums.findIndex((n) => n > 2);
+console.log(index); // 2
+```
+
+### `Array.from()`
+
+```js copy showLineNumbers filename="example.js"
+const str = "123";
+
+console.log(Array.from(str));
+// ["1","2","3"]
+```
+
+### `Array.of()`
+
+```js copy showLineNumbers filename="example.js"
+console.log(Array.of(1, 2, 3));
+```
+
+---
+
+## 1️⃣5️⃣ `Map`
+
+```js copy showLineNumbers filename="example.js"
+const map = new Map();
+
+map.set("name", "John");
+console.log(map.get("name"));
+```
+
+---
+
+## 1️⃣6️⃣ `Set`
+
+Stores unique values
+
+```js copy showLineNumbers filename="example.js"
+const set = new Set([1, 2, 2, 3]);
+
+console.log(set); // {1,2,3}
+```
+
+---
+
+## 1️⃣7️⃣ `Symbol`
+
+Unique identifier
+
+```js copy showLineNumbers filename="example.js"
+const id = Symbol("id");
+
+const user = {
+  [id]: 123,
+};
 ```
 
 ---
